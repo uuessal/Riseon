@@ -42,7 +42,7 @@ struct ContentView2: View {
                 
              
                 
-                Text("Hello, ana nedaa!")
+                Text("Hello, ana RAG!")
                     .foregroundColor(.white).font(.system(size: 20, weight: .bold, design: .default))
                 
                 

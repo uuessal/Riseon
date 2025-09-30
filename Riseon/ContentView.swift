@@ -138,7 +138,80 @@ struct RagContentView: View {
     }
 
 
+//Nedaaaaaaa cv
 
+struct NedaaContentView: View {
+    var body: some View {
+        ZStack {
+            //  الخلفية
+            LinearGradient(
+                gradient: Gradient(colors: [Color.yellow.opacity(0.4), Color.white]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
+            
+            VStack(spacing: 24) {
+                Spacer().frame(height: 60)
+                
+                //الكلام
+                VStack(spacing: 6) {
+                    Text("Keep Growing")
+                        .font(.system(size: 32, weight: .bold))
+                        .foregroundColor(.brown)
+                    Text("Keep Rising")
+                        .font(.system(size: 32, weight: .bold))
+                        .foregroundColor(.brown)
+                    
+                    Text("Grow your mindset and rise higher")
+                        .font(.system(size: 16))
+                        .foregroundColor(.black.opacity(0.7))
+                        .padding(.top, 7)
+                }
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 24)
+                ZStack{
+                    // الصور
+                    Image("cloud")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 60, height: 60)
+                        .offset(x: -150, y: -150)
+                    
+                    Image("cloud")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 550, height: 60)
+                        .offset(x: 150, y: -160)
+                    
+                    Image("sun")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 370, height: 370)
+                        .padding(.top, 70)
+                    
+                }
+                Spacer()
+                Button(action: {
+                    print("ذا بعدين لما يضغط احطو")
+                }) {
+                    Text("GET STARTED")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(.black)
+                        //.frame(maxWidth: .infinity)
+                    //.cornerRadius(30)
+                        .padding(.vertical, 14)
+                        .padding(.horizontal, 120)
+                        .background(Capsule().fill(Color.white)
+                        .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 3))
+                        .contentShape(Capsule())
+                }
+                .padding(.horizontal, 32)
+                .padding(.bottom, 40)
+            }
+        }
+    }
+}
 
 
 
@@ -176,7 +249,7 @@ struct JourneyButton: View {
 
   //WessalContentView()
     
-  RagContentView()
-
+ // RagContentView()
+    NedaaContentView()
 }
 

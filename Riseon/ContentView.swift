@@ -7,38 +7,66 @@
 
 import SwiftUI
 
+
+// wessal
+
 struct WessalContentView: View {
+    
     var body: some View {
         
-        ZStack
-        {
-            Image("background")
+        LinearGradient(
+            gradient: Gradient(colors: [Color.yellow.opacity(0.4), Color.white]),
+            startPoint: .top,
+            endPoint: .bottom
+        )
+        .ignoresSafeArea()
+        
+    
+         
             
             VStack {
                 
                 Image("logo").resizable()
                     .scaledToFit()
                     .frame(width: 400)
-            }
                 
-        }
+            
+
+                
+                
+
+            }
+        
+        Spacer()
+
+        
    
         .padding()
     }
 }
 
+
+
 struct WessalContentView2: View {
     var body: some View {
         
-        ZStack
-        {
-            Image("background")
+        
+     
+        
+    
             
             ZStack {
                 
+                LinearGradient(
+                    gradient: Gradient(colors: [Color.yellow.opacity(0.4), Color.white]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .ignoresSafeArea()
+                
                 Image("Circle").resizable()
                     .scaledToFit()
-                    .frame(width: 600)
+                    .frame(width: 600, height: 800)
                 
              
                 
@@ -48,11 +76,13 @@ struct WessalContentView2: View {
                 
             }
                 
-        }
+        
    
         .padding()
     }
 }
+
+
 
 
 struct NoufContentView: View {
@@ -88,6 +118,9 @@ struct NoufContentView: View {
             
         }
     }
+
+
+
 
 
 
@@ -219,11 +252,16 @@ struct NedaaContentView: View {
 struct rubaContentView: View {
     var body: some View {
         ZStack {
-            // Background image
-            Image("background")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
+            // Background color
+            
+            LinearGradient(
+                gradient: Gradient(colors: [Color.yellow.opacity(0.4), Color.white]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
+            
+            
             
             VStack {
                 // Top bar
@@ -335,13 +373,13 @@ struct JourneyButton: View {
   // NoufContentView()
 
 
- //  WessalContentView2()
+ // WessalContentView2()
 
-  //WessalContentView()
+  WessalContentView()
     
  // RagContentView()
   //  NedaaContentView()
     
-    rubaContentView()
+   // rubaContentView()
 }
 

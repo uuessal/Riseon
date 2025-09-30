@@ -91,6 +91,55 @@ struct NoufContentView: View {
 
 
 
+struct RagContentView: View {
+   
+        var body: some View {
+            ZStack {
+                // الخلفية بالألوان (بدون صورة)
+                LinearGradient(
+                    gradient: Gradient(colors: [Color.yellow.opacity(0.4), Color.white]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .ignoresSafeArea()
+                
+                VStack(spacing: 30) {
+                    
+                    // النص العلوي
+                    Text("All Done For Today!")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color(red: 0.6, green: 0.3, blue: 0.1))
+                    // الصوره
+                    Image("happysun")
+                                       .resizable()
+                                       .scaledToFit()
+                                       .frame(width: 350, height: 350)
+                                   
+                    
+                    // النص السفلي
+                    Text("But don’t worry, new challenges await tomorrow!")
+                        .font(.body)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.gray)
+                        .padding(.horizontal, 40)
+                    
+                    // الـ page indicator
+                    HStack(spacing: 8) {
+                        ForEach(0..<3) { _ in
+                            Circle()
+                                .fill(Color(red: 0.9, green: 0.6, blue: 0.4))
+                                .frame(width: 10, height: 10)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
 
 
 
@@ -125,6 +174,9 @@ struct JourneyButton: View {
 
  //  WessalContentView2()
 
-  WessalContentView()
+  //WessalContentView()
+    
+  RagContentView()
+
 }
 

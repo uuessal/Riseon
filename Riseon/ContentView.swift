@@ -213,12 +213,102 @@ struct NedaaContentView: View {
     }
 }
 
+//ruba
+
+
+struct rubaContentView: View {
+    var body: some View {
+        ZStack {
+            // Background image
+            Image("background")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+            
+            VStack {
+                // Top bar
+                HStack {
+                    // Menu icon
+                    Button(action: {
+                        // TODO: Menu action
+                    }) {
+                        VStack(spacing: 4) {
+                            HStack(spacing: 2) {
+                                Circle()
+                                    .frame(width: 4, height: 4)
+                                Rectangle()
+                                    .frame(width: 14, height: 3)
+                            }
+                            .foregroundColor(.brown)
+                            
+                            HStack(spacing: 2) {
+                                Circle()
+                                    .frame(width: 4, height: 4)
+                                Rectangle()
+                                    .frame(width: 14, height: 3)
+                            }
+                            .foregroundColor(.brown)
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                    // Cloud
+//                    Image(systemName: "cloud.fill")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(width: 40, height: 25)
+//                        .foregroundColor(.white)
+                }
+                .padding(.horizontal)
+                .padding(.top, 40)
+                
+                Spacer()
+                
+                // Sun image
+                Image("sun")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 300, height: 300)
+                
+                Spacer()
+                
+                // Tap to Rise text
+                Text("Tap to Rise")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.brown)
+                    .padding(.bottom, 90)
+                
+                // Page indicators
+                HStack(spacing: 12) {
+                    Circle()
+                        .fill(Color.brown)
+                        .frame(width: 18, height: 18)
+                    Circle()
+                        .fill(Color.brown.opacity(0.6))
+                        .frame(width: 10, height: 10)
+                    Circle()
+                        .fill(Color.brown.opacity(0.6))
+                        .frame(width: 10, height: 10)
+                }
+                .padding(.bottom, 40)
+            }
+        }
+    }
+}
 
 
 
 
 
 
+
+
+
+
+
+// اشياء نوف مو واجهة
 struct JourneyButton: View {
     var title: String
     var isSelected: Bool = false
@@ -250,6 +340,8 @@ struct JourneyButton: View {
   //WessalContentView()
     
  // RagContentView()
-    NedaaContentView()
+  //  NedaaContentView()
+    
+    rubaContentView()
 }
 

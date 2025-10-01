@@ -126,6 +126,8 @@ struct WessalContentView2: View {
 
 
 struct NoufContentView: View {
+    @State private var cloudOffset: CGFloat = -200
+    
     var body: some View {
         NavigationStack {
             
@@ -133,6 +135,27 @@ struct NoufContentView: View {
             ZStack {
                 LinearGradient(gradient: Gradient(colors: [Color.yellow.opacity(0.4), Color.white]), startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
+                
+                // Animated cloud
+                                 Image(systemName: "cloud.fill") // You can replace with Image("yourCloudAsset")
+                                     .resizable()
+                                     .frame(width: 160, height: 100)
+                                     .foregroundColor(.white.opacity(0.7))
+                                     .offset(x: cloudOffset, y: -200)
+                                     .onAppear {
+                                         withAnimation(Animation.linear(duration: 40).repeatForever(autoreverses: false)) {
+                                             cloudOffset = UIScreen.main.bounds.width + 200
+                                         }
+                                     }
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 
                 VStack(spacing: 40){
                     Spacer()

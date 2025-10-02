@@ -126,8 +126,14 @@ struct WessalContentView2: View {
 
 
 struct NoufContentView: View {
-    @State private var cloudOffset: CGFloat = -200
+   
+
+    @State private var cloudOffsetX: CGFloat = 0
+    @State private var cloudOffsetY: CGFloat = 0
+    @State private var cloudOffset5: CGFloat = -200
+  
     
+
     var body: some View {
         NavigationStack {
             
@@ -137,19 +143,28 @@ struct NoufContentView: View {
                     .ignoresSafeArea()
                 
                 // Animated cloud
-                                 Image(systemName: "cloud.fill") // You can replace with Image("yourCloudAsset")
+                                 Image(systemName: "cloud.fill")
                                      .resizable()
                                      .frame(width: 160, height: 100)
                                      .foregroundColor(.white.opacity(0.7))
-                                     .offset(x: cloudOffset, y: -200)
+                                     .offset(x: cloudOffset5, y: -200)
                                      .onAppear {
                                          withAnimation(Animation.linear(duration: 40).repeatForever(autoreverses: false)) {
-                                             cloudOffset = UIScreen.main.bounds.width + 200
+                                             cloudOffset5 = UIScreen.main.bounds.width + 200
                                          }
                                      }
                 
-                
-                
+               
+                Image(systemName: "cloud.fill")
+                       .resizable()
+                       .frame(width: 160, height: 100)
+                       .foregroundColor(.white.opacity(0.7))
+                       .offset(x: 100, y: cloudOffsetY)
+                       .onAppear {
+                           withAnimation(Animation.linear(duration: 40).repeatForever(autoreverses: false)) {
+                               cloudOffsetY = UIScreen.main.bounds.height + 200
+                           }
+                       }
                 
                 
                 
@@ -466,7 +481,7 @@ struct JourneyButton: View {
 
  // WessalContentView2()
 
-  //WessalContentView()
+//WessalContentView()
     
  // RagContentView()
   //  NedaaContentView()

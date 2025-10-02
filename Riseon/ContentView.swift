@@ -172,7 +172,7 @@ struct NoufContentView: View {
                         
                         JourneyButton(title: "EMOITONAL INTELLIGENCE")
                         JourneyButton(title: "CONFIDENCE")
-                        JourneyButton(title: "DISCIPLINE",  isSelected: true)
+                        JourneyButton(title: "DISCIPLINE")
                         
                     }
                     
@@ -461,12 +461,12 @@ struct JourneyButton: View {
 
 #Preview {
     
-  // NoufContentView()
+  NoufContentView()
 
 
  // WessalContentView2()
 
-  WessalContentView()
+  //WessalContentView()
     
  // RagContentView()
   //  NedaaContentView()

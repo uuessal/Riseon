@@ -355,40 +355,44 @@ struct RubaContentView: View {
                 VStack {
                     // Top bar
                     HStack {
-                        // Menu icon
-                        Button(action: {
-                            // TODO: Menu action
-                        }) {
-                            VStack(spacing: 4) {
-                                HStack(spacing: 2) {
-                                    Circle()
-                                        .frame(width: 4, height: 4)
-                                    Rectangle()
-                                        .frame(width: 14, height: 3)
-                                }
-                                .foregroundColor(.brown)
-                                
-                                HStack(spacing: 2) {
-                                    Circle()
-                                        .frame(width: 4, height: 4)
-                                    Rectangle()
-                                        .frame(width: 14, height: 3)
-                                }
-                                .foregroundColor(.brown)
-                            }
-                        }
+//                        // Menu icon
+//                        Button(action: {
+//                            // TODO: Menu action
+//                        }) {
+//                            VStack(spacing: 4) {
+//                                HStack(spacing: 2) {
+//                                    Circle()
+//                                        .frame(width: 4, height: 4)
+//                                    Rectangle()
+//                                        .frame(width: 14, height: 3)
+//                                }
+//                                .foregroundColor(.brown)
+//
+//                                HStack(spacing: 2) {
+//                                    Circle()
+//                                        .frame(width: 4, height: 4)
+//                                    Rectangle()
+//                                        .frame(width: 14, height: 3)
+//                                }
+//                                .foregroundColor(.brown)
+//                            }
+//                        }
                         
-                        Spacer()
+//                        Spacer()
+//
+//                        // Cloud (معلّق حالياً)
+//                        // Image(systemName: "cloud.fill")
+//                        //     .resizable()
+//                        //     .scaledToFit()
+//                        //     .frame(width: 40, height: 25)
+//                        //     .foregroundColor(.white)
                         
-                        // Cloud (معلّق حالياً)
-                        // Image(systemName: "cloud.fill")
-                        //     .resizable()
-                        //     .scaledToFit()
-                        //     .frame(width: 40, height: 25)
-                        //     .foregroundColor(.white)
+                        
+                        
+                        
                     }
-                    .padding(.horizontal)
-                    .padding(.top, 40)
+       //             .padding(.horizontal)
+     //               .padding(.top, 40)
                     
                     Spacer()
                     
@@ -407,18 +411,23 @@ struct RubaContentView: View {
                         .foregroundColor(.brown)
                         .padding(.bottom, 90)
                     
-                    // Page indicators
-                    HStack(spacing: 12) {
-                        Circle()
-                            .fill(Color.brown)
-                            .frame(width: 18, height: 18)
-                        Circle()
-                            .fill(Color.brown.opacity(0.6))
-                            .frame(width: 10, height: 10)
-                        Circle()
-                            .fill(Color.brown.opacity(0.6))
-                            .frame(width: 10, height: 10)
+                    
+                    
+                    
+                    // الـ page indicator
+                    HStack(spacing: 8) {
+                        ForEach(0..<3) { _ in
+                            Circle()
+                                .fill(Color(red: 0.9, green: 0.6, blue: 0.4))
+                                .frame(width: 10, height: 10)
+                        }
                     }
+                    
+
+                    
+                    
+                    
+                    
                     .padding(.bottom, 40)
                 }
                 // دبل كلك → يروح لصفحة وصال

@@ -8,14 +8,14 @@
 import SwiftUI
 
 // MARK: - Data Arrays
-let EmotionalIntelligenceCh = ["Don’t react when angry — take a deep breath first.", "Your body language speaks louder than your words.", "Understanding others starts with understanding yourself.", "Write down how you truly felt at the end of each day.", "Listen to someone for 5 minutes without interrupting.", "When something negative happens, list 3 positives about it."]
+let EmotionalIntelligenceCh = ["Don’t react when angry — take a deep breath first", "Your body language speaks louder than your words", "Understanding others starts with understanding yourself", "Write down how you truly felt at the end of each day", "Listen to someone for 5 minutes without interrupting", "When something negative happens, list 3 positives about it"]
 
 
 
 
 
 
-let ConfidenceCh = ["Watch your self-talk your mind believes what you repeat. Replace", "Replace I always mess up with I’m learning", "Focus on progress not perfection", "See yourself as a student", "Catch one negative thought today and rewrite it into something empowering", "Wear something slightly outside your comfort zone and own it confidently"]
+let ConfidenceCh = ["Watch your self-talk your mind believes what you repeat", "Replace I always mess up with I’m learning", "Focus on progress not perfection", "See yourself as a student", "Catch one negative thought today and rewrite it into something empowering", "Wear something slightly outside your comfort zone and own it confidently"]
 
 
 

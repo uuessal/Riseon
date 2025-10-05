@@ -15,7 +15,7 @@ let EmotionalIntelligenceCh = ["Don’t react when angry — take a deep breath 
 
 
 
-let ConfidenceCh = ["a2", "b2", "c2", "d2", "e2", "f2"]
+let ConfidenceCh = ["Watch your self-talk your mind believes what you repeat. Replace", "Replace I always mess up with I’m learning", "Focus on progress not perfection", "See yourself as a student", "Catch one negative thought today and rewrite it into something empowering", "Wear something slightly outside your comfort zone and own it confidently"]
 
 
 

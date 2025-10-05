@@ -138,13 +138,16 @@ struct NoufContentView: View {
 
 // MARK: - Ruba View (Tap to Rise)
 // MARK: - Ruba View (Tap to Rise)
+
+import SwiftUI
+
 struct RubaContentView: View {
     let initialChallengeText: String
     let category: String
 
     @State private var goToWessal = false
     @State private var goToRaghad = false
-    @State private var goToNouf = false // 👈 جديد
+    @State private var goToNouf = false
 
     @AppStorage("tapCountToday") private var tapCountToday = 0
     @AppStorage("lastOpenDate") private var lastOpenDate = ""
@@ -154,6 +157,7 @@ struct RubaContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
+                // الخلفية
                 LinearGradient(
                     gradient: Gradient(colors: [Color.yellow.opacity(0.4), Color.white]),
                     startPoint: .top,
@@ -164,6 +168,7 @@ struct RubaContentView: View {
                 VStack {
                     Spacer()
 
+                    // الصورة
                     Image("sun")
                         .resizable()
                         .scaledToFit()
@@ -171,17 +176,20 @@ struct RubaContentView: View {
 
                     Spacer()
 
+                    // النص
                     Text("Tap to Rise")
                         .font(.title3)
                         .fontWeight(.semibold)
                         .foregroundColor(.brown)
                         .padding(.bottom, 90)
 
-                    HStack(spacing: 8) {
-                        ForEach(0..<3) { _ in
+                    // الدوائر الصغيرة مع الحالة المتغيرة
+                    HStack(spacing: 10) {
+                        ForEach(0..<3) { index in
                             Circle()
-                                .fill(Color(red: 0.9, green: 0.6, blue: 0.4))
-                                .frame(width: 10, height: 10)
+                                .fill(circleColor(for: index))
+                                .frame(width: circleSize(for: index), height: circleSize(for: index))
+                                .animation(.easeInOut(duration: 0.3), value: tapCountToday)
                         }
                     }
                     .padding(.bottom, 40)
@@ -192,6 +200,7 @@ struct RubaContentView: View {
                 }
                 .onTapGesture(count: 2) {
                     if tapCountToday < 3 {
+                        // اختيار التحدي الجديد حسب الفئة
                         switch category {
                         case "EI":
                             currentChallenge = EmotionalIntelligenceCh.randomElement() ?? initialChallengeText
@@ -228,7 +237,7 @@ struct RubaContentView: View {
                 }
                 .hidden()
             }
-            // 👇 Toolbar مخصصة لزر الباك
+            // Toolbar لزر الرجوع
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
@@ -242,22 +251,39 @@ struct RubaContentView: View {
                     }
                 }
             }
-            .navigationBarBackButtonHidden(true) // نخفي الزر الافتراضي
+            .navigationBarBackButtonHidden(true)
         }
         .tint(.brown)
     }
 
-    func resetTapCountIfNewMinute() {
-        let now = Date()
-        if let lastDate = ISO8601DateFormatter().date(from: lastOpenDate) {
-            let diff = Calendar.current.dateComponents([.minute], from: lastDate, to: now).minute ?? 0
-            if diff >= 1 {
-                tapCountToday = 0
-                lastOpenDate = ISO8601DateFormatter().string(from: now)
-            }
+    // MARK: - Helper Functions
+    
+    // ألوان الدوائر
+    private func circleColor(for index: Int) -> Color {
+        if tapCountToday > index {
+            return .gray.opacity(0.4) // تم إنجازها
         } else {
+            return Color(red: 0.9, green: 0.6, blue: 0.4) // نشطة
+        }
+    }
+
+    // حجم الدوائر
+    private func circleSize(for index: Int) -> CGFloat {
+        if tapCountToday == index {
+            return 16 // الدائرة النشطة تكبر
+        } else {
+            return 10 // الباقي صغيرة
+        }
+    }
+
+    // إعادة التعيين إذا بدأ يوم جديد
+    private func resetTapCountIfNewMinute() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let now = formatter.string(from: Date())
+        if now != lastOpenDate {
+            lastOpenDate = now
             tapCountToday = 0
-            lastOpenDate = ISO8601DateFormatter().string(from: now)
         }
     }
 }
@@ -345,7 +371,7 @@ struct RagContentView: View {
                 HStack(spacing: 8) {
                     ForEach(0..<3) { _ in
                         Circle()
-                            .fill(Color(red: 0.9, green: 0.6, blue: 0.4))
+                            .fill(Color(.gray.opacity(0.4)))
                             .frame(width: 10, height: 10)
                     }
                 }
@@ -452,5 +478,5 @@ struct JourneyButton: View {
 
 // MARK: - Preview
 #Preview {
-    NoufContentView()
+    WessalContentView()
 }
